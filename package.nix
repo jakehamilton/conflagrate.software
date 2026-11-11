@@ -10,6 +10,12 @@ pkgs.buildNpmPackage {
 
   npmDepsHash = "sha256-dBmzKVrM+5R9hoTX/TQ5jUEuTEIjBft6cvzHP3K1jWg=";
 
+  postBuild = ''
+    mkdir -p $out/libexec
+
+    mv dist $out/libexec/conflagrate.software
+  '';
+
   meta = {
     description = "Website for conflagrate.software";
     homepage = "https://conflagrate.software";
