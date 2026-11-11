@@ -1,0 +1,133 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.playfair {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.vt323 {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --text-color: #000;
+  --background-color: #ededed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --background-color: #141414;
+  }
+}
+
+html {
+  color: var(--text-color);
+  background: var(--background-color);
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 32px auto 0 auto;
+  padding: 0 1rem 4rem 1rem;
+  font-size: 16px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+a {
+  font-size: 20px;
+  color: white;
+}
+
+#ignite {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+#ignite span {
+  --text-shadow-color: white;
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--background-color);
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow:
+    var(--text-shadow-color) -2px -2px,
+    var(--text-shadow-color) 2px -2px,
+    var(--text-shadow-color) -2px 2px,
+    var(--text-shadow-color) 2px 2px;
+}
+
+#ignite canvas {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  #ignite canvas {
+    /* display: none; */
+  }
+}
+
+section {
+  margin-top: 2rem;
+}
+
+#values {
+  width: 100%;
+}
+
+#values ol {
+  counter-set: 0;
+  counter-reset: number;
+  list-style-type: none;
+  padding: 0;
+}
+
+#values ol li {
+  counter-increment: number;
+}
+
+#values ol li:not(:last-child) {
+  padding-bottom: 2rem;
+}
+
+#values ol li h2::before {
+  content: counter(number) ". ";
+  display: inline;
+  font-size: 1rem;
+}
+
+#values ol li p {
+  padding-left: 1.25rem;
+}
